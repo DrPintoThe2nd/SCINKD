@@ -24,7 +24,7 @@ mamba activate scinkd
 ```
 To run: Ensure there are approximately enough computational resources for the job and then simply run
 ```
-bash SCINKD/scinkd_v0.2.sh hap1.fasta.gz hap2.fasta.gz 16 8
+bash SCINKD/scinkd_v0.2.sh hap1.fasta.gz hap2.fasta.gz <RAM (in Gb)> <number of threads> 
 ```
 For example, to run the pipeline on a squamate genome on a machine with 12 available threads and 16Gb of available RAM, the command would look like this for these test data (https://doi.org/10.6084/m9.figshare.27040678.v1):
 ```
