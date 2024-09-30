@@ -8,6 +8,12 @@ At its core, SCINKD is a theoretical framework to identify sex chromosomes that 
 
 The current implementation of this tool uses meryl to count and negate kmers from two genomic haplotypes.
 
+To install:
+```
+git clone https://github.com/DrPintoThe2nd/SCINKD.git
+mamba create -n scinkd meryl=1.4.1 snakemake pigz r r-dplyr r-ggplot2 mashmap --yes
+mamba activate scinkd 
+```
 To run: Ensure there are apporximately enough computational resources for the job and then simply run
 ```
 bash scinkd_v0.2.sh hap1.fasta.gz hap2.fasta.gz 
