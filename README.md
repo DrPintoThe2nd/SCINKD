@@ -30,8 +30,11 @@ For example, to run the pipeline on a squamate genome on a machine with 12 avail
 ```
 bash SCINKD/scinkd_v0.2.sh Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.p_ctg.FINAL.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.p_ctg.FINAL.fasta.gz 16 12
 ```
-Version 0.2 prints final outputs to stdout. These outputs can be recovered to a file simply by:
+Version 0.2 prints final outputs (total number of kmers per haplotype) to stdout. These outputs can be recovered to a file simply by:
 ```
 paste hap1-minus-hap2.txt hap1-minus-hap2.out > hap1-minus-hap2.results
 paste hap2-minus-hap1.txt hap2-minus-hap1.out > hap2-minus-hap1.results
 ```
+
+Downstream plotting establishes the linear relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that generally deviate from this expectation, e.g.
+![image](https://github.com/user-attachments/assets/b346e962-48df-40dc-bcf7-950d33cbdb9c)
