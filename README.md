@@ -10,9 +10,9 @@ The current implementation of this tool uses meryl to count and negate kmers fro
 
 To run: Ensure there are apporximately enough computational resources for the job and then simply run
 ```
-bash scinkd_v0.1.sh hap1.fasta hap2.fasta <threads> <genome size [must be an interger, rounded up to the nearest Gb]>
+bash scinkd_v0.2.sh hap1.fasta.gz hap2.fasta.gz 
 ```
 For example, to run the pipeline on a larger squamate genome (2.5Gb) on a machine with 24 available threads, the command would look like this:
 ```
-bash scinkd_v0.1.sh hap1.fasta hap2.fasta 24 3
+bash scinkd_v0.1.sh Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz
 ```
