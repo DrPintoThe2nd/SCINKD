@@ -11,7 +11,7 @@ The current implementation of this tool uses meryl to count and negate kmers fro
 To install:
 ```
 git clone https://github.com/DrPintoThe2nd/SCINKD.git
-mamba create -n scinkd meryl=1.4.1 snakemake pigz r r-dplyr r-ggplot2 mashmap --yes
+mamba create -n scinkd meryl=1.4.1 snakemake=6.12.3 pigz r r-dplyr r-ggplot2 mashmap --yes
 mamba activate scinkd 
 ```
 To run: Ensure there are approximately enough computational resources for the job and then simply run
