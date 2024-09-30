@@ -7,7 +7,13 @@ At its core, SCINKD is a theoretical framework to identify sex chromosomes that 
   3. This density is then identifiable by isolating haplotype-specific kmer densities and comparing within and between both haplotypes.
 
 The current implementation of this tool uses meryl to count and negate kmers from two genomic haplotypes.
-Previous implementations relied on multiple piecemeal programs that tooks upwards of 5 hours to complete, the current version (0.2) should take ~30 minutes from takeoff to touchdown.
+Previous implementations relied on multiple piecemeal programs that tooks upwards of 5 hours to complete, the current version (0.2) should take <30 minutes from takeoff to touchdown.
+Running on the provided test data reported these times upon successful completion:
+```
+real    18m44.287s
+user    31m44.943s
+sys     0m38.454s
+```
 
 To install:
 ```
