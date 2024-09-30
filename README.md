@@ -7,8 +7,9 @@ At its core, SCINKD is a theoretical framework to identify sex chromosomes that 
   3. This density is then identifiable by isolating haplotype-specific kmer densities and comparing within and between both haplotypes.
 
 The current implementation of this tool uses meryl to count and negate kmers from two genomic haplotypes.
-Previous implementations relied on multiple piecemeal programs that tooks upwards of 5 hours to complete, the current version (0.2) should take <30 minutes from takeoff to touchdown.
-Running on the provided test data reported these times upon successful completion:
+Previous implementations relied on multiple piecemeal programs that tooks upwards of 5 hours to complete, the current version (0.2) should take ~30 minutes from takeoff to touchdown.
+
+Running on the provided test data on a local machine reported these times upon successful completion:
 ```
 real    18m44.287s
 user    31m44.943s
@@ -27,7 +28,7 @@ bash SCINKD/scinkd_v0.2.sh hap1.fasta.gz hap2.fasta.gz
 ```
 For example, to run the pipeline on a squamate genome on a machine with 12 available threads and 16Gb of available RAM, the command would look like this for these test data (https://doi.org/10.6084/m9.figshare.27040678.v1):
 ```
-bash SCINKD/scinkd_v0.2.sh Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.p_ctg.FINAL.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.p_ctg.FINAL.fasta.gz
+bash SCINKD/scinkd_v0.2.sh Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.p_ctg.FINAL.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.p_ctg.FINAL.fasta.gz 16 12
 ```
 Version 0.2 prints final outputs to stdout. These outputs can be recovered to a file simply by:
 ```
