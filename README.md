@@ -36,5 +36,5 @@ paste hap1-minus-hap2.txt hap1-minus-hap2.out > hap1-minus-hap2.results
 paste hap2-minus-hap1.txt hap2-minus-hap1.out > hap2-minus-hap1.results
 ```
 
-Downstream plotting establishes the linear relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that generally deviate from this expectation, e.g.
+Downstream plotting establishes the linear relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that significantly deviate from this expectation, e.g.
 ![image](https://github.com/user-attachments/assets/b346e962-48df-40dc-bcf7-950d33cbdb9c)
