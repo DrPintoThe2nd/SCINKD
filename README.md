@@ -12,7 +12,7 @@ To run: Ensure there are apporximately enough computational resources for the jo
 ```
 bash scinkd_v0.2.sh hap1.fasta.gz hap2.fasta.gz 
 ```
-For example, to run the pipeline on a squamate genome on a machine with 12 available threads and 16Gb of available RAM, the command would look like this:
+For example, to run the pipeline on a squamate genome on a machine with 12 available threads and 16Gb of available RAM, the command would look like this for these test data (https://doi.org/10.6084/m9.figshare.27040678.v1):
 ```
-bash scinkd_v0.2.sh Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz
+bash scinkd_v0.2.sh Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.p_ctg.FINAL.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.p_ctg.FINAL.fasta.gz
 ```
