@@ -33,7 +33,7 @@ rule meryl_hap1_count:
 		directory("{genome}.hap1.meryl/"),
 	shell:
 		"""
-		meryl count k=28 memory=15 threads=8 output {output} {input}
+		meryl count k=28 memory=15 threads=12 output {output} {input}
 		"""
 
 rule meryl_hap2_count:	
@@ -43,7 +43,7 @@ rule meryl_hap2_count:
 		directory("{genome}.hap2.meryl/"),
 	shell:
 		"""
-		meryl count k=28 memory=15 threads=8 output {output} {input}
+		meryl count k=28 memory=15 threads=12 output {output} {input}
 		"""
 
 rule meryl_hap1_diff:	
