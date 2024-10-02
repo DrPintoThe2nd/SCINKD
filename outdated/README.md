@@ -36,8 +36,8 @@ paste hap1-minus-hap2.txt hap1-minus-hap2.out > hap1-minus-hap2.results
 paste hap2-minus-hap1.txt hap2-minus-hap1.out > hap2-minus-hap1.results
 ```
 
-Downstream plotting establishes the linear relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that significantly deviate from this expectation, e.g. where the two outlier dots located around 1e+08 on the x-axis are the putative sex chromosomes in this species (this plot is produced from v0.1 output).
-![image](https://github.com/user-attachments/assets/b346e962-48df-40dc-bcf7-950d33cbdb9c)
+Downstream plotting establishes the linear relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that significantly deviate from this expectation, e.g. where the two outlier dots located around 1e+08 on the x-axis are the putative sex chromosomes in this species (this plot is produced from v0.2 output).
+![Picture1](https://github.com/user-attachments/assets/bb625f46-04f0-456f-afff-ca7974313d86)
 
 
 
@@ -59,3 +59,5 @@ For example, to run the pipeline on a larger squamate genome (2.5Gb) on a machin
 ```
 bash scinkd_v0.1.sh hap1.fasta hap2.fasta 24 3
 ```
+Downstream plotting establishes the linear relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that significantly deviate from this expectation, e.g. where the two outlier dots located around 1e+08 on the x-axis are the putative sex chromosomes in this species (this plot is produced from v0.1 output).
+![image](https://github.com/user-attachments/assets/b346e962-48df-40dc-bcf7-950d33cbdb9c)
