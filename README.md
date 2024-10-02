@@ -49,8 +49,12 @@ samtools faidx <haplotype_1>.fasta
 samtools faidx <haplotype_2>.fasta
 ```
 
+
 Downstream plotting establishes the linear relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that significantly deviate from this expectation:
 ![Picture1](https://github.com/user-attachments/assets/0ea3de57-055d-46b3-8a85-a8ec2e7da77e)
 
+[last two steps in the pipeline need to be replaced with a faster python script]
+
+[additional plotting functions to be added]
 
 [additional documentation to be added] 
