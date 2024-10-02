@@ -1,8 +1,3 @@
 {
-	"species": "Anniella_stebbinsi_HiFi_2024.asm.hic",
-	"hap1": "Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz",
-	"hap2": "Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz",
-	"hap1": [
-		"hap1",
-		"hap2"]
+	"prefix": "Anniella_stebbinsi_HiFi_2024.asm.hic"
 }

@@ -104,6 +104,10 @@ rule results_hap1:
 		
 		wait
 		
+		>{output.tmp2}
+		
+		wait
+		
 		cat {output.tmp1} | while read line
 		do
 		grep "$line" {input} | wc -l >> {output.tmp2}
@@ -125,6 +129,10 @@ rule results_hap2:
 	shell:
 		"""
 		cut -f1 {input} | uniq > {output.tmp1}
+		
+		wait
+		
+		>{output.tmp2}
 		
 		wait
 		
