@@ -48,8 +48,9 @@ Downstream plotting establishes the linear relationship between chromosome lengt
 # Sex Chromosome Identification by Negating Kmer Densities (SCINKD), version 2
 SCINKD [v2.0] is a Snakemake implementation (and additional outputting) of scinkd (v0.2).
 
-File naming restriction: Both haplotype fasta files MUST be gzipped (or bgzipped) and MUST end in ".hap1.fasta.gz" and ".hap2.fasta.gz"
-For the test dataset provided, this could be applied simply via:
+_**File naming restriction:**_ Both haplotype fasta files MUST be gzipped (or bgzipped) and MUST end in ".hap1.fasta.gz" and ".hap2.fasta.gz"
+
+For the test dataset provided (https://doi.org/10.6084/m9.figshare.27040678.v1), this could be applied simply via:
 ```
 mv Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.p_ctg.FINAL.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz
 mv Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.p_ctg.FINAL.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz
@@ -60,9 +61,9 @@ Then, ensure the config.json file reads:
 	"prefix": "Anniella_stebbinsi_HiFi_2024.asm.hic"
 }
 ```
-To run the pipeline on a squamate genome on a machine with 12 available threads and 16Gb of available RAM, the command would look like this for these test data (https://doi.org/10.6084/m9.figshare.27040678.v1):
+To run the pipeline on the provided _Anniella_ genome on a machine with 16 available threads (and the default setting of 16Gb of available RAM):
 ```
 snakemake --use-conda   -np -s SCINKD.v2.0.beta.snakefile          #dry-run to test inputs
-snakemake --use-conda -c 24 -s SCINKD.v2.0.beta.snakefile          #run SCINKD
+snakemake --use-conda -c 16 -s SCINKD.v2.0.beta.snakefile          #run SCINKD
 ```
 [additional documentation to be added] 
