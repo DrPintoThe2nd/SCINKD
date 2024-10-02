@@ -48,4 +48,11 @@ Downstream plotting establishes the linear relationship between chromosome lengt
 # Sex Chromosome Identification by Negating Kmer Densities (SCINKD), version 2
 SCINKD [v2.0] is a Snakemake implementation (and additional outputting) of scinkd (v0.2).
 
+File naming restriction: Both haplotype fasta files MUST be gzipped (or bgzipped) and MUST end in ".hap1.fasta.gz" and ".hap2.fasta.gz"
+For the test dataset provided, this could be applied simply via:
+```
+mv Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.p_ctg.FINAL.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz
+mv Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.p_ctg.FINAL.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz
+```
+
 [additional documentation to be added] 
