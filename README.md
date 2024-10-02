@@ -36,8 +36,8 @@ paste hap1-minus-hap2.txt hap1-minus-hap2.out > hap1-minus-hap2.results
 paste hap2-minus-hap1.txt hap2-minus-hap1.out > hap2-minus-hap1.results
 ```
 
-Downstream plotting establishes the linear relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that significantly deviate from this expectation, e.g. where the two outlier dots located around 1e+08 on the x-axis are the putative sex chromosomes in this species (this plot is produced from v0.1 output).
-![image](https://github.com/user-attachments/assets/b346e962-48df-40dc-bcf7-950d33cbdb9c)
+Downstream plotting establishes the linear relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that significantly deviate from this expectation, e.g. where the two outlier dots located around 1e+08 on the x-axis are the putative sex chromosomes in this species (this plot is produced from v0.2 output).
+![Picture1](https://github.com/user-attachments/assets/0ea3de57-055d-46b3-8a85-a8ec2e7da77e)
 
 # Sex Chromosome Identification by Negating Kmer Densities (SCINKD), version 2
 SCINKD [v2.0] is a Snakemake implementation (and additional outputting) of scinkd (v0.2).
