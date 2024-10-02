@@ -54,5 +54,15 @@ For the test dataset provided, this could be applied simply via:
 mv Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.p_ctg.FINAL.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz
 mv Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.p_ctg.FINAL.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz
 ```
-
+Then, ensure the config.json file reads:
+```
+{
+	"prefix": "Anniella_stebbinsi_HiFi_2024.asm.hic"
+}
+```
+To run the pipeline on a squamate genome on a machine with 12 available threads and 16Gb of available RAM, the command would look like this for these test data (https://doi.org/10.6084/m9.figshare.27040678.v1):
+```
+snakemake --use-conda   -np -s SCINKD.v2.0.beta.snakefile          #dry-run to test inputs
+snakemake --use-conda -c 24 -s SCINKD.v2.0.beta.snakefile          #run SCINKD
+```
 [additional documentation to be added] 
