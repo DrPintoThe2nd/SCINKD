@@ -19,7 +19,7 @@ sys     0m38.454s
 To install:
 ```
 git clone https://github.com/DrPintoThe2nd/SCINKD.git
-mamba create -n scinkd meryl=1.4.1 snakemake=6.12.3 pigz r r-dplyr r-ggplot2 mashmap --yes
+mamba create -n scinkd meryl=1.4.1 snakemake=6.12.3 pigz r r-dplyr r-ggplot2 mashmap samtools --yes
 mamba activate scinkd 
 ```
 To run: Ensure there are approximately enough computational resources for the job and then simply run
@@ -34,6 +34,12 @@ Version 0.2 prints final outputs (total number of kmers per haplotype) to stdout
 ```
 paste hap1-minus-hap2.txt hap1-minus-hap2.out > hap1-minus-hap2.results
 paste hap2-minus-hap1.txt hap2-minus-hap1.out > hap2-minus-hap1.results
+```
+
+Chromosome lengths can be calculated using samtools faidx (column two of the fasta index file):
+```
+samtools faidx <haplotype_1>.fasta
+samtools faidx <haplotype_2>.fasta
 ```
 
 Downstream plotting establishes the linear relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that significantly deviate from this expectation, e.g. where the two outlier dots located around 1e+08 on the x-axis are the putative sex chromosomes in this species (this plot is produced from v0.2 output).
