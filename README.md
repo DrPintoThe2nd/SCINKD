@@ -19,7 +19,7 @@ sys     0m38.454s
 To install:
 ```
 git clone https://github.com/DrPintoThe2nd/SCINKD.git
-mamba create -n scinkd meryl=1.4.1 snakemake=6.12.3 pigz r r-dplyr r-ggplot2 mashmap samtools --yes
+mamba create -n scinkd meryl=1.4.1 snakemake pigz r r-dplyr r-ggplot2 mashmap samtools --yes
 mamba activate scinkd 
 ```
 To run: Ensure there are approximately enough computational resources for the job and then simply run
