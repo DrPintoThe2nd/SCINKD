@@ -12,7 +12,7 @@ Previous implementations relied on multiple piecemeal programs that tooks upward
 
 Running on the a test dataset on a cluster with a 24 core/36Gb RAM allocation reported these times upon successful completion:
 ```
-time snakemake --use-conda -c 24 -s SCINKD.v2.0.beta.snakefile
+time snakemake --use-conda -c 24 -s SCINKD/SCINKD.v2.0.beta.snakefile
 real    35m2.348s
 user    111m28.608s
 sys     14m56.227s
@@ -40,8 +40,8 @@ Then, ensure the config.json file reads:
 ```
 To run the pipeline on the provided _Anniella_ genome on a machine with 16 available threads (and the default setting of 16Gb of available RAM):
 ```
-snakemake --use-conda   -np -s SCINKD.v2.0.beta.snakefile          #dry-run to test inputs
-snakemake --use-conda -c 16 -s SCINKD.v2.0.beta.snakefile          #run SCINKD
+snakemake --use-conda   -np -s SCINKD/SCINKD.v2.0.beta.snakefile          #dry-run to test inputs
+snakemake --use-conda -c 16 -s SCINKD/SCINKD.v2.0.beta.snakefile          #run SCINKD
 ```
 Chromosome lengths can be calculated using samtools faidx (column two of the fasta index file):
 ```
