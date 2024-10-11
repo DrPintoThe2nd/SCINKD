@@ -27,6 +27,8 @@ mamba activate scinkd
 
 _**File naming restriction:**_ Both input haplotype fasta files MUST be gzipped (or bgzipped) and MUST end in ".hap1.fasta.gz" and ".hap2.fasta.gz"
 
+_**WARNING**_ Due to current limitations in the final step of the workflow, runtime scales _linearly_ with the total number of sequences in each haplotype, it's strongly recommended to subsample a genome to it's chromosomes. Contigs/scaffolds smaller than a robust chromosome also violate the generalized assumptions of the concept and likely won't 
+
 For the test dataset provided (https://doi.org/10.6084/m9.figshare.27040678.v1), this could be applied simply via:
 ```
 mv Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.p_ctg.FINAL.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz
