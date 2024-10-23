@@ -31,10 +31,10 @@ _**WARNING**_ Due to current limitations in the final step of the workflow, runt
 
 _**Disclaimer**_ This technique reports phasing differences between haplotypes, including contaminants, it's important to look deeper into any regions of interest.
 
-For the test dataset provided (https://doi.org/10.6084/m9.figshare.27040678.v1), this could be applied simply via:
+For the test dataset provided (https://doi.org/10.6084/m9.figshare.27040678.v2), this could be applied simply via:
 ```
-mv Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.p_ctg.FINAL.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz
-mv Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.p_ctg.FINAL.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz
+mv Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.p_ctg.FINAL.Genbank.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz
+mv Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.p_ctg.FINAL.Genbank.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz
 ```
 Then, ensure the config.json file reads:
 ```
@@ -49,13 +49,20 @@ snakemake --use-conda -c 16 -s SCINKD/SCINKD.v2.0.1.beta.snakefile          #run
 ```
 Chromosome lengths can be calculated using samtools faidx (column two of the fasta index file):
 ```
-samtools faidx <haplotype_1>.fasta
-samtools faidx <haplotype_2>.fasta
+samtools faidx Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz
+samtools faidx Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz
 ```
 
+Template code used in generating these plots is enclosed (Anniella_template.R) and test files useful for replicating these plots are available alongside the test dataset (https://doi.org/10.6084/m9.figshare.27040678.v2).
 
 Downstream plotting establishes the linear relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that significantly deviate from this expectation:
-![Picture1](https://github.com/user-attachments/assets/0ea3de57-055d-46b3-8a85-a8ec2e7da77e)
+![Rplot05](https://github.com/user-attachments/assets/8511ec53-9ccb-4aa6-ac45-bc5e9e945484)
+
+Kmer densities on the Z and W are observably higher:
+![Rplot06](https://github.com/user-attachments/assets/13b16d8c-748a-4a2b-86dc-ffb29a0bdd00)
+
+Regions of increase kmer dentities converge on a single part of the chromosome, syntenic with chicken chromosome 11.
+![Rplot07](https://github.com/user-attachments/assets/1b84e928-7d3d-4186-9f7e-8ff8995496fe)
 
 [last two steps in the pipeline need to be replaced with a faster python script]
 
