@@ -1,4 +1,4 @@
-setwd("C:/Users/brend/Downloads")
+setwd("~/Downloads")
 
 library(dplyr)
 library(ggplot2)
