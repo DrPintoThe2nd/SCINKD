@@ -44,8 +44,8 @@ Then, ensure the config.json file reads:
 ```
 To run the pipeline on the provided _Anniella_ genome on a machine with 16 available threads (and the default setting of 16Gb of available RAM):
 ```
-snakemake --use-conda   -np -s SCINKD/SCINKD.v2.0.beta.snakefile          #dry-run to test inputs
-snakemake --use-conda -c 16 -s SCINKD/SCINKD.v2.0.beta.snakefile          #run SCINKD
+snakemake --use-conda   -np -s SCINKD/SCINKD.v2.0.1.beta.snakefile          #dry-run to test inputs
+snakemake --use-conda -c 16 -s SCINKD/SCINKD.v2.0.1.beta.snakefile          #run SCINKD
 ```
 Chromosome lengths can be calculated using samtools faidx (column two of the fasta index file):
 ```
