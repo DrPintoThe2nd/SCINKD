@@ -61,7 +61,7 @@ Downstream plotting establishes the linear relationship between chromosome lengt
 Kmer densities on the Z and W are observably higher:
 ![Rplot06](https://github.com/user-attachments/assets/13b16d8c-748a-4a2b-86dc-ffb29a0bdd00)
 
-Regions of increase kmer dentities converge on a single part of the chromosome, syntenic with chicken chromosome 11.
+Regions of increased kmer dentities converge on a single part of the chromosome, syntenic with chicken chromosome 11.
 ![Rplot07](https://github.com/user-attachments/assets/1b84e928-7d3d-4186-9f7e-8ff8995496fe)
 
 [last two steps in the pipeline need to be replaced with a faster python script]
