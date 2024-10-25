@@ -70,3 +70,5 @@ Regions of increased kmer dentities converge on a single part of the chromosome,
 
 [additional documentation to be added] 
 
+After implicating a linkage group as a putative sex chromosome, additional anaylses still need to be conducted to validate. I'd recommend starting with a 1:1 haplotype alignment and diving deeper into that using a program like _pafr_ https://github.com/dwinter/pafr or _SVbyEye_ (shown) https://github.com/daewoooo/SVbyEye:
+![image](https://github.com/user-attachments/assets/21df933e-c7d8-4a8d-b284-4b85224eec34)
