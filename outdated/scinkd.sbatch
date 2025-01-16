@@ -13,6 +13,6 @@
 
 module purge
 
-source activate illumina
+source activate scinkd
 
-snakemake --use-conda -c 16 -s SCINKD.v2.0.1.beta.snakefile
+snakemake --use-conda -c 16 -s SCINKD/SCINKD.v2.0.1.beta.snakefile
