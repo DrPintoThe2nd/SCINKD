@@ -10,12 +10,12 @@ At its core, SCINKD is a theoretical framework to identify sex chromosomes that 
 The current implementation of this tool uses meryl to count and negate kmers from two genomic haplotypes.
 Previous implementations relied on multiple piecemeal programs that tooks upwards of 5 hours to complete, the current version (0.2) should take ~30 minutes from takeoff to touchdown.
 
-Running on the a test dataset on a cluster with a 24 core/36Gb RAM allocation reported these times upon successful completion:
+Running on the a test dataset on a cluster with a 24 core/24Gb RAM allocation reported these times upon successful completion:
 ```
-time snakemake --use-conda -c 24 -s SCINKD/SCINKD.v2.0.beta.snakefile
-real    35m2.348s
-user    111m28.608s
-sys     14m56.227s
+time snakemake --use-conda -c 24 -s SCINKD/SCINKD.v2.0.2.beta.snakefile
+real	11m31.458s
+user	50m16.126s
+sys	1m35.754s
 ```
 
 To install:
@@ -33,10 +33,12 @@ _**Disclaimer**_ This technique reports phasing differences between haplotypes, 
 
 For the test dataset provided (https://doi.org/10.6084/m9.figshare.27040678.v2), this could be applied simply via:
 ```
-ln -s Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.p_ctg.FINAL.Genbank.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz
-ln -s Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.p_ctg.FINAL.Genbank.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz
+wget https://figshare.com/ndownloader/files/49948980
+wget https://figshare.com/ndownloader/files/49948983
+ln -s 49948980 Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz
+ln -s 49948983 Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz
 ```
-Then, ensure the config.json file reads:
+Then, ensure the SCINKD/config.json file reads:
 ```
 {
 	"prefix": "Anniella_stebbinsi_HiFi_2024.asm.hic"
