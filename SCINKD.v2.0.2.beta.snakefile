@@ -7,7 +7,7 @@ import os
 #mamba env export > SCINKD.v2.0.alpha_environment.yml
 #snakemake --use-conda -np -s SCINKD.v2.0.alpha.snakefile
 
-configfile: "config.json"
+configfile: "SCINKD/config.json"
 genome = config["prefix"]
 
 rule all:
