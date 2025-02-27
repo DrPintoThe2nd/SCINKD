@@ -9,8 +9,8 @@ hap2_kmer <- read.delim("Anniella_stebbinsi_HiFi_2024.asm.hic.hap2-minus-hap1.re
 hap1_idx <- read.delim("Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz.fai", header = F)
 hap2_idx <- read.delim("Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz.fai", header = F)
 
-hap1_bed <- read.delim("Anniella_stebbinsi_HiFi_2024.asm.hic.hap1-minus-hap2.chrW.bed", header = F)
-hap2_bed <- read.delim("Anniella_stebbinsi_HiFi_2024.asm.hic.hap2-minus-hap1.chrZ.bed", header = F)
+hap1_bed <- read.delim("Anniella_stebbinsi_HiFi_2024.asm.hic.hap1-minus-hap2.bed", header = F)
+hap2_bed <- read.delim("Anniella_stebbinsi_HiFi_2024.asm.hic.hap2-minus-hap1.bed", header = F)
 colnames(hap1_bed)<-c("scaffold","start","end")
 colnames(hap2_bed)<-c("scaffold","start","end")
 
@@ -50,25 +50,47 @@ ggplot(combined_data, aes(x = V2.x, y = V2.y, color = Dataset)) +
   theme_minimal()
 ####
 
-
 ###################
+#subset provided bed file to linkage group of interest (LGi)
+hap1_LGi <- subset(hap1_bed, scaffold == "chrW")
+hap2_LGi <- subset(hap2_bed, scaffold == "chrZ")
 
 #ggplot(hap1_bed) + geom_histogram(fill = "black", aes(x=start),binwidth=1e6)
 #ggplot(hap2_bed) + geom_histogram(fill = "black", aes(x=start),binwidth=1e6)
 
 #mirror plot
-ggplot(hap1_bed, aes(x=start)) +
-  geom_histogram(data = hap1_bed,  aes(x = start, y =  after_stat(density)), color = "#5F00F6", fill = "black", alpha = 0.8, binwidth=1e6) +
-  geom_histogram(data = hap2_bed, aes(x = start, y = -after_stat(density)), color = "#62CD32", fill = "grey", alpha = 0.8, binwidth=1e6) +
+ggplot(hap1_LGi, aes(x=start)) +
+  geom_histogram(data = hap1_LGi,  aes(x = start, y =  after_stat(density)), color = "#5F00F6", fill = "black", alpha = 0.8, binwidth=1e6) +
+  geom_histogram(data = hap2_LGi, aes(x = start, y = -after_stat(density)), color = "#62CD32", fill = "grey", alpha = 0.8, binwidth=1e6) +
   ggtitle("Kmer Density: putative ZW") +
   xlab("Position on chromosome") + 
   ylab("Kmer density") + 
   theme_bw()
 
+################################
 
+####################################################
 
+#Visualize haplotype alignment of a linkage group of interest
 
+#align the two haplotypes using minimap2, e.g.
+#minimap2 -x asm5 -t8 -c --eqx --secondary=no Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz > Anniella_stebbinsi_HiFi_2024.asm.hic.paf
+#awk ' $1 == "chrZ" ' Anniella_stebbinsi_HiFi_2024.asm.hic.paf > tmp
+#awk ' $6 == "chrW" ' tmp > Anniella_stebbinsi_HiFi_2024.asm.hic.iLG.paf
 
+## Install required packages
+#install.packages("devtools")
+library(devtools)
 
+## Install from GitHub repository
+#devtools::install_github("daewoooo/SVbyEye", branch="master")
 
+library(SVbyEye)
 
+## Read in PAF
+mypaf <- readPaf("Anniella_stebbinsi_HiFi_2024.asm.hic.iLG.paf")
+plotGenome(paf.table = mypaf)
+
+#plotGenome(paf.table = mypaf, color.by = 'identity', perc.identity.breaks = c(85, 90, 95))
+
+plotMiro(paf.table = mypaf, binsize = 100000, genomic.scale = 'Mbp', color.by = 'identity', perc.identity.breaks = c(85, 90, 95))
