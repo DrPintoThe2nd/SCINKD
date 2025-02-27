@@ -12,7 +12,7 @@ Here is a graphical represtention of these points:
 
 
 The current implementation of this tool uses meryl to count and negate kmers from two genomic haplotypes.
-Previous implementations relied on multiple piecemeal programs that tooks upwards of 5 hours to complete, the current version (0.2.2) should take ~60 minutes from takeoff to touchdown.
+Previous implementations relied on multiple piecemeal programs that tooks upwards of 5 hours to complete, the current version [v2.0.2] should take ~60 minutes from takeoff to touchdown.
 
 Running on the a test dataset on a cluster with a 24 core/24Gb RAM allocation reported these times upon successful completion:
 ```
