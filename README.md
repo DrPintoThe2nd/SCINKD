@@ -11,18 +11,23 @@ Here is a graphical represtention of these points:
 ![SCINKD_mock_plot_complex_v1 0](https://github.com/user-attachments/assets/b57bf8e7-19a8-4d1c-9963-541a0e6e0cab)
 
 
-The current implementation of this tool uses meryl to count and negate kmers from two genomic haplotypes.
-Previous implementations relied on multiple piecemeal programs that tooks upwards of 5 hours to complete, the current version [v2.0.2] should take ~60 minutes from takeoff to touchdown.
+This implementation of this tool uses meryl to count and negate kmers from two genomic haplotypes.
+
+SCINKD/SCINKD.v2.1.0.FULL   = Most up-to-date SCINKD pipeline without kmer compression
+SCINKD/SCINKD.v2.1.0.GREEDY = Most up-to-date SCINKD pipeline with added homopolymer compression reduces runtime many-fold, but reduces sensitivity enormously (and file sizes), This may be optimal for known systems with strong signals (e.g. mammals and birds) or in taxa with large genomes ~10Gb+.
 
 Running on the a test dataset on a cluster with a 24 core/24Gb RAM allocation reported these times upon successful completion:
 ```
-time snakemake --use-conda -c 24 -s SCINKD/SCINKD.v2.0.2.beta.snakefile
-real	11m31.458s
-user	50m16.126s
-sys	1m35.754s
-```
+time snakemake --use-conda -c 24 -s SCINKD/SCINKD.v2.1.0.FULL.snakefile
+real    19m49.171s
+user    37m25.996s
+sys     1m2.541s
 
-[Adding homopolymer compression reduces runtime ~3-fold, but reduces sensitivity enormously, next update will add this as a new "greedy" option in the config file. Would be optimal for known systems with strong signals (e.g. mammals and birds) or in taxa with large genomes ~10Gb+]
+time snakemake --use-conda -c 24 -s SCINKD/SCINKD.v2.1.0.GREEDY.snakefile
+real    6m22.552s
+user    13m42.636s
+sys     0m37.158s
+```
 
 To install:
 ```
@@ -32,8 +37,6 @@ mamba activate scinkd
 ```
 
 _**File naming restriction:**_ Both input haplotype fasta files MUST be gzipped (or bgzipped) and MUST end in ".hap1.fasta.gz" and ".hap2.fasta.gz" (or their symbolic link does).
-
-_**WARNING**_ Due to current limitations in the final step of the workflow, runtime scales _linearly_ with the total number of sequences in each haplotype.
 
 _**Disclaimer**_ This technique reports phasing differences between haplotypes, including contaminants, it's important to look deeper into any regions of interest.
 
@@ -52,8 +55,8 @@ Then, ensure the SCINKD/config.json file reads:
 ```
 To run the pipeline on the provided _Anniella_ genome on a machine with 16 available threads (and the default setting of 16Gb of available RAM):
 ```
-snakemake --use-conda   -np -s SCINKD/SCINKD.v2.0.2.beta.snakefile          #dry-run to test inputs
-snakemake --use-conda -c 16 -s SCINKD/SCINKD.v2.0.2.beta.snakefile          #run SCINKD
+snakemake --use-conda   -np -s SCINKD/SCINKD.v2.1.0.FULL.snakefile         #dry-run to test inputs
+snakemake --use-conda -c 16 -s SCINKD/SCINKD.v2.1.0.FULL.snakefile         #run SCINKD
 ```
 Chromosome lengths can be calculated using samtools faidx (column two of the fasta index file):
 ```
@@ -71,8 +74,6 @@ Kmer densities on the Z and W are observably higher:
 
 Regions of increased kmer dentities converge on a single part of the chromosome, syntenic with chicken chromosome 11.
 ![Rplot07](https://github.com/user-attachments/assets/1b84e928-7d3d-4186-9f7e-8ff8995496fe)
-
-[last two steps in the pipeline should probably be replaced with a faster script...]
 
 [additional plotting functions to be added]
 
