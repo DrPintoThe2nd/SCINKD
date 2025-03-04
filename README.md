@@ -22,6 +22,8 @@ user	50m16.126s
 sys	1m35.754s
 ```
 
+[Adding homopolymer compression reduces runtime ~3-fold, but reduces sensitivity enormously, next update will add this as a new "greedy" option in the config file. Would be optimal for known systems with strong signals (e.g. mammals and birds) or in taxa with large genomes ~10Gb+]
+
 To install:
 ```
 git clone https://github.com/DrPintoThe2nd/SCINKD.git
@@ -70,7 +72,7 @@ Kmer densities on the Z and W are observably higher:
 Regions of increased kmer dentities converge on a single part of the chromosome, syntenic with chicken chromosome 11.
 ![Rplot07](https://github.com/user-attachments/assets/1b84e928-7d3d-4186-9f7e-8ff8995496fe)
 
-[last two steps in the pipeline need to be replaced with a faster python script]
+[last two steps in the pipeline should probably be replaced with a faster script...]
 
 [additional plotting functions to be added]
 
