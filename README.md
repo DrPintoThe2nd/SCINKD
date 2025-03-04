@@ -1,6 +1,6 @@
 # Sex Chromosome Identification by Negating Kmer Densities (SCINKD), version 2
 Sex Chromosome Identification by Negating Kmer Densities (SCINKD) is a wrapper to implicate the sex chromosome linkage group of a haplotype-resolved genome of the heterogametic sex with an unknown sex chromosome system.
-SCINKD [v2.0] is a Snakemake implementation (and additional outputting) of scinkd (v0.2).
+SCINKD [v2.1.0] is a Snakemake implementation of the below conceptual framework.
 
 At its core, SCINKD is a theoretical framework to identify sex chromosomes that operates under a few generalized assumptions of a diploid genome.
   1. Polymorphisms are broadly uniform between haplotypes within a single diploid individual.
@@ -13,10 +13,10 @@ Here is a graphical represtention of these points:
 
 This implementation of this tool uses meryl to count and negate kmers from two genomic haplotypes.
 
-SCINKD/SCINKD.v2.1.0.FULL   = Most up-to-date SCINKD pipeline without kmer compression
+SCINKD/SCINKD.v2.1.0.FULL   = Most up-to-date SCINKD pipeline (without kmer compression).
 SCINKD/SCINKD.v2.1.0.GREEDY = Most up-to-date SCINKD pipeline with added homopolymer compression reduces runtime many-fold, but reduces sensitivity enormously (and file sizes), This may be optimal for known systems with strong signals (e.g. mammals and birds) or in taxa with large genomes ~10Gb+.
 
-Running on the a test dataset on a cluster with a 24 core/24Gb RAM allocation reported these times upon successful completion:
+Running on the test dataset on a cluster with a 24 core/24Gb RAM allocation reported these times upon successful completion:
 ```
 time snakemake --use-conda -c 24 -s SCINKD/SCINKD.v2.1.0.FULL.snakefile
 real    19m49.171s
@@ -74,8 +74,6 @@ Kmer densities on the Z and W are observably higher:
 
 Regions of increased kmer dentities converge on a single part of the chromosome, syntenic with chicken chromosome 11.
 ![Rplot07](https://github.com/user-attachments/assets/1b84e928-7d3d-4186-9f7e-8ff8995496fe)
-
-[additional plotting functions to be added]
 
 [additional documentation to be added] 
 
