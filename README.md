@@ -53,7 +53,7 @@ Then, ensure the SCINKD/config.json file reads:
 	"prefix": "Anniella_stebbinsi_HiFi_2024.asm.hic"
 }
 ```
-To run the pipeline on the provided _Anniella_ genome on a machine with 16 available threads (and the default setting of 16Gb of available RAM):
+To run the pipeline on the provided _Anniella_ genome on a machine with 24 available threads (and the default setting of 16Gb of available RAM):
 ```
 snakemake --use-conda   -np -s SCINKD/SCINKD.v2.1.0.FULL.snakefile         #dry-run to test inputs
 snakemake --use-conda -c 24 -s SCINKD/SCINKD.v2.1.0.GREEDY.snakefile       #run SCINKD in greedy mode for quick testing
