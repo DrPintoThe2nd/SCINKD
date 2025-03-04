@@ -1,8 +1,8 @@
-# Sex Chromosome Identification by Negating Kmer Densities (SCINKD), version 2
+# Sex Chromosome Identification by Negating Kmer Densities (SCINKD)
 Sex Chromosome Identification by Negating Kmer Densities (SCINKD) is a wrapper to implicate the sex chromosome linkage group of a haplotype-resolved genome of the heterogametic sex with an unknown sex chromosome system.
 SCINKD [v2.1.0] is a Snakemake implementation of the below conceptual framework.
 
-At its core, SCINKD is a theoretical framework to identify sex chromosomes that operates under a few generalized assumptions of a diploid genome.
+SCINKD is a framework to identify sex chromosomes that operates under a few generalized assumptions of a diploid genome.
   1. Polymorphisms are broadly uniform between haplotypes within a single diploid individual.
   2. The density of genetic differences occur at much higher densities on the sex-limited region of the sex chromosomes
   3. This density is then identifiable by isolating haplotype-specific kmer densities and comparing within and between both haplotypes (smallest SDR identified to-date has been ~1Mb).
