@@ -104,7 +104,7 @@ rule results_hap1:
 		
 		wait
 		
-		awk '{{print $2,$1}}' {output.tmp} > {output.final}
+		awk '{{print $2,$1}}' OFS='\t' {output.tmp} > {output.final}
 		
 		"""
 
@@ -122,6 +122,6 @@ rule results_hap2:
 		
 		wait
 		
-		awk '{{print $2,$1}}' {output.tmp} > {output.final}
+		awk '{{print $2,$1}}' OFS='\t' {output.tmp} > {output.final}
 		
 		"""
