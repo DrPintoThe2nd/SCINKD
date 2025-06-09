@@ -79,3 +79,8 @@ Regions of increased kmer dentities converge on a single part of the chromosome,
 
 After implicating a linkage group as a putative sex chromosome, additional anaylses still need to be conducted to validate. I'd recommend starting with a 1:1 haplotype alignment and diving deeper into that using a program like _pafr_ https://github.com/dwinter/pafr or _SVbyEye_ (shown) https://github.com/daewoooo/SVbyEye:
 ![image](https://github.com/user-attachments/assets/21df933e-c7d8-4a8d-b284-4b85224eec34)
+
+Combining each piece of the SCINKD framework coalesces around a single region in the genome that shows strong evidence of a ZW pattern:
+![Anniella_complete](https://github.com/user-attachments/assets/5e56461c-571c-4eb2-ad38-0da43ab2ec1f)
+
+
