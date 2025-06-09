@@ -90,7 +90,7 @@ rule meryl_lookup_hap2:
 		meryl-lookup -sequence {input.fa} -mers {input.hap2} -bed -output {output}
 		"""
 
-##calculate number of kmers occuring in each haplotype (this is rather crude at this point)
+##calculate number of kmers occuring in each haplotype
 rule results_hap1:	
 	input:
 		expand("{genome}.hap1-minus-hap2.bed", genome=genome),
