@@ -8,7 +8,7 @@ SCINKD is a framework to identify sex chromosomes that operates under a few gene
   3. This density is then identifiable by isolating haplotype-specific kmer densities and comparing within and between both haplotypes (smallest SDR identified to-date has been ~1Mb).
 
 Here is a graphical represention of these points:
-![SCINKD_mock_plot_complex_v1 0](https://github.com/user-attachments/assets/b57bf8e7-19a8-4d1c-9963-541a0e6e0cab)
+![SCINKD_mock_plot_complex_v2 0](https://github.com/user-attachments/assets/aea48ea0-4136-40b3-9948-1fa8d40f18b8)
 
 
 This implementation of this tool uses meryl to count and negate kmers from two genomic haplotypes.
