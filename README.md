@@ -40,12 +40,12 @@ _**File naming restriction:**_ Both input haplotype fasta files MUST be gzipped 
 
 _**Disclaimer**_ This technique reports phasing differences between haplotypes, including contaminants, it's important to look deeper into any regions of interest.
 
-For the test dataset provided (https://doi.org/10.6084/m9.figshare.27040678.v2), this could be applied simply via:
+For the test dataset provided ([https://doi.org/10.6084/m9.figshare.27040678](https://doi.org/10.6084/m9.figshare.27040678.v3)), this could be applied simply via:
 ```
-wget https://figshare.com/ndownloader/files/49948980
-wget https://figshare.com/ndownloader/files/49948983
-ln -s 49948980 Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz
-ln -s 49948983 Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz
+wget --content-disposition https://ndownloader.figshare.com/files/49948980
+wget --content-disposition https://ndownloader.figshare.com/files/49948983
+ln -s Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.p_ctg.FINAL.Genbank.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz
+ln -s Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.p_ctg.FINAL.Genbank.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz
 ```
 Then, ensure the SCINKD/config.json file reads:
 ```
