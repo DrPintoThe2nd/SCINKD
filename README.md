@@ -66,7 +66,12 @@ samtools faidx Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz
 
 Template code used in generating these plots is enclosed (Anniella_template.R) and test files useful for replicating these plots are available alongside the test dataset (https://doi.org/10.6084/m9.figshare.27040678.v2).
 
-Downstream plotting establishes the linear relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that significantly deviate from this expectation:
+As of December 2025, boxplots and dotplots below have been automated, but currently remain independent of the Snakemake workflow. For automated plotting as both a png and pdf, simple input the file prefix used in the config.json file from running SCINKD, the number of chromosomes, and specify a plot label via:
+```
+Rscript hapmer_plot.R <prefix> <N> <label>
+```
+
+This plotting establishes the relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that significantly deviate from this expectation:
 ![Rplot05](https://github.com/user-attachments/assets/8511ec53-9ccb-4aa6-ac45-bc5e9e945484)
 
 Kmer densities on the Z and W are observably higher:
