@@ -34,7 +34,7 @@ sys     0m37.158s
 To install:
 ```
 git clone https://github.com/DrPintoThe2nd/SCINKD.git
-mamba create -n scinkd meryl=1.4.1 snakemake=7.32.4 pigz r r-dplyr r-ggplot2 samtools --yes
+mamba create -n scinkd meryl=1.4.1 snakemake=7.32.4 pigz r r-dplyr r-ggplot2 samtools r-ggrepel r-polychrome --yes
 mamba activate scinkd 
 ```
 
@@ -70,7 +70,25 @@ Template code used in generating these plots is enclosed (Anniella_template.R) a
 
 As of December 2025, boxplots and dotplots below have been automated, but currently remain independent of the Snakemake workflow. For automated plotting as both a png and pdf, simple input the file prefix used in the config.json file from running SCINKD, the number of chromosomes, and specify a plot label via:
 ```
-Rscript hapmer_plot.R <prefix> <N> <label>
+#Usage: 
+Rscript hapmer_plot.R <prefix> <N> <label> <show_scaffold_ids> <color_scaffolds>
+
+# Examples:
+# Basic plot
+Rscript hapmer_plot.R Anniella_stebbinsi_HiFi_2024.asm.hic 10 Chromosomes
+
+# Plot with scaffold labels
+Rscript hapmer_plot.R Anniella_stebbinsi_HiFi_2024.asm.hic 10 Chromosomes T
+Rscript hapmer_plot.R Anniella_stebbinsi_HiFi_2024.asm.hic 10 Chromosomes T F
+
+# Plot with colored scaffold points, but without scaffold labels
+Rscript hapmer_plot.R Anniella_stebbinsi_HiFi_2024.asm.hic 10 Chromosomes F T
+
+# Plot with colored scaffold points and scaffold labels
+Rscript hapmer_plot.R Anniella_stebbinsi_HiFi_2024.asm.hic 10 Chromosomes T T
+
+# Plot with colored scaffold points and scaffold labels and use whitelist file 
+Rscript hapmer_plot.R Anniella_stebbinsi_HiFi_2024.asm.hic scaffold.whitelist Chromosomes T T
 ```
 
 This plotting establishes the relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that significantly deviate from this expectation:
