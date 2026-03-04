@@ -54,6 +54,9 @@ wget --content-disposition https://ndownloader.figshare.com/files/49948983
 ln -s Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.p_ctg.FINAL.Genbank.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz
 ln -s Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.p_ctg.FINAL.Genbank.fasta.gz Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz
 ```
+
+**NOTE** There are ongoing issues with the Figshare downloading interface. However, as of February 2026, these assemblies are also available to be downloaded directly from GenBank: hap1: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_051312515.2/, hap2: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_051312545.2/
+
 Then, ensure the SCINKD/config.json file reads:
 ```
 {
