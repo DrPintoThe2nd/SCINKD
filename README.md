@@ -1,5 +1,5 @@
 # Citation
-If using this workflow, or deriving code from it's underlying framework, please cite its source:
+If using this workflow, or developing code from it's underlying framework, please cite its source:
 
 Pinto BJ, Gable SM, Keating SE, Smith CH, Gamble T, Nielsen SV, Wilson MA. (2026). Sex chromosome identification and genome curation from a single individual with SCINKD. _Molecular Biology and Evolution_. _In press_.
 
