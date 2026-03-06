@@ -100,7 +100,7 @@ Rscript hapmer_plot.R Anniella_stebbinsi_HiFi_2024.asm.hic scaffold.whitelist Ch
 ```
 
 This plotting establishes the relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that significantly deviate from this expectation:
-![Rplot05](https://github.com/user-attachments/assets/8511ec53-9ccb-4aa6-ac45-bc5e9e945484)
+<img width="2400" height="1800" alt="Anniella_stebbinsi_HiFi_2024 asm hic dotplot" src="https://github.com/user-attachments/assets/cb202654-7cf2-433e-995a-8b1f691916e2" />
 
 Kmer densities on the Z and W are observably higher:
 ![Rplot06](https://github.com/user-attachments/assets/13b16d8c-748a-4a2b-86dc-ffb29a0bdd00)
