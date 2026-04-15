@@ -21,7 +21,6 @@ Here is a graphical represention of these points:
 This implementation of SCINKD uses meryl to count and negate kmers from two genomic haplotypes.
 
 SCINKD/SCINKD.v2.2.3.FULL   = Most up-to-date SCINKD pipeline (without kmer compression).
-SCINKD/SCINKD.v2.1.0.GREEDY = **Depreciated** Outdated SCINKD pipeline with added homopolymer compression reduces runtime many-fold, but reduces sensitivity enormously (and file sizes), This may be optimal for known systems with strong signals (e.g. mammals and birds) or in taxa with large genomes ~10Gb+.
 
 Running on the test dataset on a cluster with a 24 core/24Gb RAM allocation reported these times upon successful completion:
 ```
