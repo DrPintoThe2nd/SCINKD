@@ -1,3 +1,7 @@
 {
+	"per_job_threads": 12,
+	"per_job_memory": 12,
+	"ChrNum": 10,
+
 	"prefix": "Anniella_stebbinsi_HiFi_2024.asm.hic"
 }
