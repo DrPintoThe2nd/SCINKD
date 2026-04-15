@@ -25,9 +25,9 @@ SCINKD/SCINKD.v2.2.3.FULL   = Most up-to-date SCINKD pipeline (without kmer comp
 Running on the test dataset on a cluster with a 24 core/24Gb RAM allocation reported these times upon successful completion:
 ```
 time snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD/SCINKD.v2.2.3.FULL.py
-real    11m37.983s
-user    54m6.054s
-sys     1m51.536s
+real    10m34.431s
+user    51m11.978s
+sys     1m43.553s
 ```
 
 To install:
