@@ -5,7 +5,7 @@ Pinto BJ, Gable SM, Keating SE, Smith CH, Gamble T, Nielsen SV, Wilson MA. (2026
 
 # Sex Chromosome Identification by Negating Kmer Densities (SCINKD)
 Sex Chromosome Identification by Negating Kmer Densities (SCINKD) is a 'pseudo-statistical' methodology to implicate the sex chromosome linkage group of a haplotype-resolved genome of the heterogametic sex with an unknown sex chromosome system.
-SCINKD [v2.1.0] is a Snakemake implementation of the below conceptual framework.
+SCINKD [v2.1.0 or later] is a Snakemake implementation of the below conceptual framework.
 
 SCINKD is a framework to identify sex chromosomes that operates under a few generalized assumptions of a diploid genome.
   1. Polymorphisms are broadly uniform between haplotypes within a single diploid individual.
@@ -20,30 +20,25 @@ Here is a graphical represention of these points:
 
 This implementation of SCINKD uses meryl to count and negate kmers from two genomic haplotypes.
 
-SCINKD/SCINKD.v2.1.0.FULL   = Most up-to-date SCINKD pipeline (without kmer compression).
-SCINKD/SCINKD.v2.1.0.GREEDY = Most up-to-date SCINKD pipeline with added homopolymer compression reduces runtime many-fold, but reduces sensitivity enormously (and file sizes), This may be optimal for known systems with strong signals (e.g. mammals and birds) or in taxa with large genomes ~10Gb+.
+SCINKD/SCINKD.v2.2.3.FULL   = Most up-to-date SCINKD pipeline (without kmer compression).
+SCINKD/SCINKD.v2.1.0.GREEDY = **Depreciated** Outdated SCINKD pipeline with added homopolymer compression reduces runtime many-fold, but reduces sensitivity enormously (and file sizes), This may be optimal for known systems with strong signals (e.g. mammals and birds) or in taxa with large genomes ~10Gb+.
 
 Running on the test dataset on a cluster with a 24 core/24Gb RAM allocation reported these times upon successful completion:
 ```
-time snakemake --use-conda -c 24 -s SCINKD/SCINKD.v2.1.0.FULL.snakefile
-real    19m49.171s
-user    37m25.996s
-sys     1m2.541s
-
-time snakemake --use-conda -c 24 -s SCINKD/SCINKD.v2.1.0.GREEDY.snakefile
-real    6m22.552s
-user    13m42.636s
-sys     0m37.158s
+time snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD/SCINKD.v2.2.3.FULL.py
+real    11m37.983s
+user    54m6.054s
+sys     1m51.536s
 ```
 
 To install:
 ```
 git clone https://github.com/DrPintoThe2nd/SCINKD.git
-mamba create -n scinkd meryl=1.4.1 snakemake=7.32.4 pigz r r-dplyr r-ggplot2 samtools r-ggrepel r-polychrome --yes
-mamba activate scinkd 
+mamba create -f SCINKD/SCINKD.v2.2.3.environment.yml
+mamba activate scinkd2
 ```
 
-_**File naming restriction:**_ Both input haplotype fasta files MUST be gzipped (or bgzipped) and MUST end in ".hap1.fasta.gz" and ".hap2.fasta.gz" (or their symbolic link does).
+_**File naming restriction:**_ **Both input haplotype fasta files MUST be bgzipped and MUST end in ".hap1.fasta.gz" and ".hap2.fasta.gz"**
 
 _**Disclaimer**_ This technique reports phasing differences between haplotypes, including contaminants, it's important to look deeper into any regions of interest.
 
@@ -57,26 +52,29 @@ ln -s Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.p_ctg.FINAL.Genbank.fasta.gz Ann
 
 **NOTE** There are ongoing issues with the Figshare downloading interface. However, as of February 2026, these assemblies are also available to be downloaded directly from GenBank: hap1: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_051312515.2/, hap2: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_051312545.2/
 
-Then, ensure the SCINKD/config.json file reads:
+Then, ensure the SCINKD/config.json file reads, where threads and memory are <=1/2 the total available resources for the job:
 ```
 {
+	"per_job_threads": 12,
+	"per_job_memory": 12,
+	"ChrNum": 10,
+
 	"prefix": "Anniella_stebbinsi_HiFi_2024.asm.hic"
 }
 ```
 To run the pipeline on the provided _Anniella_ genome on a machine with 24 available threads (and the default setting of 16Gb of available RAM):
 ```
-snakemake --use-conda   -np -s SCINKD/SCINKD.v2.1.0.FULL.snakefile         #dry-run to test inputs
-snakemake --use-conda -c 24 -s SCINKD/SCINKD.v2.1.0.GREEDY.snakefile       #run SCINKD in greedy mode for quick testing
+time snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD/SCINKD.v2.2.3.FULL.py -n         #dry-run to test inputs
+time snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD/SCINKD.v2.2.3.FULL.py      #run SCINKD in greedy mode for quick testing
 ```
+**v2.2.3 update: Indicies are now generated automatically within the workflow.**
 Chromosome lengths can be calculated using samtools faidx (column two of the fasta index file):
 ```
 samtools faidx Anniella_stebbinsi_HiFi_2024.asm.hic.hap1.fasta.gz
 samtools faidx Anniella_stebbinsi_HiFi_2024.asm.hic.hap2.fasta.gz
 ```
 
-Template code used in generating these plots is enclosed (Anniella_template.R) and test files useful for replicating these plots are available alongside the test dataset (https://doi.org/10.6084/m9.figshare.27040678.v2).
-
-As of December 2025, boxplots and dotplots below have been automated, but currently remain independent of the Snakemake workflow. For automated plotting as both a png and pdf, simple input the file prefix used in the config.json file from running SCINKD, the number of chromosomes, and specify a plot label via:
+As of v2.2.3, default boxplots and dotplots (examples below) are now automated, and output an additional summary file, "<genome_prefix>.plot_data.tsv". For custom plotting as both a png and pdf, simple input the file prefix used in the config.json file from running SCINKD, the number of chromosomes, and specify a plot label via:
 ```
 #Usage: 
 Rscript hapmer_plot.R <prefix> <N> <label> <show_scaffold_ids> <color_scaffolds>
@@ -98,6 +96,8 @@ Rscript hapmer_plot.R Anniella_stebbinsi_HiFi_2024.asm.hic 10 Chromosomes T T
 # Plot with colored scaffold points and scaffold labels and use whitelist file 
 Rscript hapmer_plot.R Anniella_stebbinsi_HiFi_2024.asm.hic scaffold.whitelist Chromosomes T T
 ```
+Additional template code used in generating these plots is enclosed (Anniella_template.R) and test files useful for replicating these plots are available alongside the test dataset (https://doi.org/10.6084/m9.figshare.27040678.v2).
+
 
 This plotting establishes the relationship between chromosome length and number of haplotype-specific kmers, as well as the sex chromosomes that significantly deviate from this expectation:
 <img width="2400" height="1800" alt="Anniella_stebbinsi_HiFi_2024 asm hic dotplot" src="https://github.com/user-attachments/assets/cb202654-7cf2-433e-995a-8b1f691916e2" />
