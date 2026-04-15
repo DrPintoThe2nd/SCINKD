@@ -38,7 +38,7 @@ rule index_hap1:
 		"{genome}.hap1.fasta.gz",
 	output:
 		out = "{genome}.hap1.fasta.gz.fai",
-		tmp = temp({genome}.hap1.fasta.gz.gzi),
+		tmp = temp("{genome}.hap1.fasta.gz.gzi"),
 	shell:
 		"""
 		samtools faidx {input}
@@ -49,7 +49,7 @@ rule index_hap2:
 		"{genome}.hap2.fasta.gz",
 	output:
 		out = "{genome}.hap2.fasta.gz.fai",
-		tmp = temp({genome}.hap2.fasta.gz.gzi),
+		tmp = temp("{genome}.hap2.fasta.gz.gzi"),
 	shell:
 		"""
 		samtools faidx {input}
