@@ -19,9 +19,9 @@ rule all:
 		expand("{genome}.hap2.fasta.gz.fai", genome=genome),
 #fasta_split rule(s)
 		expand("{genome}.hap1/", genome=genome),
-		expand("{genome}.hap1/hap1_50.fa", genome=genome),
+		expand("{genome}.hap1/hap1_100.fa", genome=genome),
 		expand("{genome}.hap2/", genome=genome),
-		expand("{genome}.hap2/hap2_50.fa", genome=genome),
+		expand("{genome}.hap2/hap2_100.fa", genome=genome),
 #meryl_count rule(s)
 		expand("{genome}.hap1.meryl/", genome=genome),
 		expand("{genome}.hap2.meryl/", genome=genome),
@@ -64,7 +64,7 @@ rule hap1_split:
 	input:
 		"{genome}.hap1.fasta.gz",
 	output:
-		checkpoint = "{genome}.hap1/hap1_50.fa",
+		checkpoint = "{genome}.hap1/hap1_100.fa",
 		split = directory("{genome}.hap1/"),
 	threads: threads,
 	resources:
@@ -77,7 +77,7 @@ rule hap1_split:
 
 rule meryl_hap1_count:
 	input:
-		check = "{genome}.hap1/hap1_50.fa",
+		check = "{genome}.hap1/hap1_100.fa",
 		split = "{genome}.hap1/",
 	output:
 		directory("{genome}.hap1.meryl/"),
@@ -93,7 +93,7 @@ rule hap2_split:
 	input:
 		"{genome}.hap2.fasta.gz",
 	output:
-		checkpoint = "{genome}.hap2/hap2_50.fa",
+		checkpoint = "{genome}.hap2/hap2_100.fa",
 		split = directory("{genome}.hap2/"),
 	threads: threads,
 	resources:
@@ -106,7 +106,7 @@ rule hap2_split:
 
 rule meryl_hap2_count:
 	input:
-		check = "{genome}.hap2/hap2_50.fa",
+		check = "{genome}.hap2/hap2_100.fa",
 		split = "{genome}.hap2/",
 	output:
 		directory("{genome}.hap2.meryl/"),
