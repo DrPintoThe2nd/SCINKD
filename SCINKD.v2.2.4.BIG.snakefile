@@ -72,7 +72,7 @@ rule hap1_split:
 	shell:
 		"""
 		mkdir -p {output.split}
-		faSplit size {input} 10000000 {output.split}/hap1_
+		faSplit size {input} 50000000 {output.split}/hap1_
 		"""
 
 rule meryl_hap1_count:
@@ -101,7 +101,7 @@ rule hap2_split:
 	shell:
 		"""
 		mkdir -p {output.split}
-		faSplit size {input} 10000000 {output.split}/hap2_
+		faSplit size {input} 50000000 {output.split}/hap2_
 		"""
 
 rule meryl_hap2_count:
@@ -124,6 +124,7 @@ rule meryl_hap1_diff:
 		hap2 = "{genome}.hap2.meryl",
 	output:
 		directory("{genome}.hap1-minus-hap2.meryl/"),
+	threads: threads,
 	shell:
 		"""
 		meryl difference {input.hap1} {input.hap2} output {output}
@@ -135,6 +136,7 @@ rule meryl_hap2_diff:
 		hap2 = "{genome}.hap2.meryl/",
 	output:
 		directory("{genome}.hap2-minus-hap1.meryl/"),
+	threads: threads,
 	shell:
 		"""
 		meryl difference {input.hap2} {input.hap1} output {output}
@@ -146,6 +148,7 @@ rule meryl_lookup_hap1:
 		hap1 = "{genome}.hap1-minus-hap2.meryl/",
 	output:
 		"{genome}.hap1-minus-hap2.bed",
+	threads: threads,
 	shell:
 		"""
 		meryl-lookup -sequence {input.fa} -mers {input.hap1} -bed -output {output}
@@ -157,6 +160,7 @@ rule meryl_lookup_hap2:
 		hap2 = "{genome}.hap2-minus-hap1.meryl/",
 	output:
 		"{genome}.hap2-minus-hap1.bed",
+	threads: threads,
 	shell:
 		"""
 		meryl-lookup -sequence {input.fa} -mers {input.hap2} -bed -output {output}
