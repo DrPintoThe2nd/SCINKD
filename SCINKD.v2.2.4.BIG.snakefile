@@ -78,7 +78,7 @@ rule hap1_split:
 rule meryl_hap1_count:
 	input:
 		check = "{genome}.hap1/hap1_50.fa",
-		split = directory("{genome}.hap1/"),
+		split = "{genome}.hap1/",
 	output:
 		directory("{genome}.hap1.meryl/"),
 	threads: threads,
@@ -107,7 +107,7 @@ rule hap2_split:
 rule meryl_hap2_count:
 	input:
 		check = "{genome}.hap2/hap2_50.fa",
-		split = directory("{genome}.hap2/"),
+		split = "{genome}.hap2/",
 	output:
 		directory("{genome}.hap2.meryl/"),
 	threads: threads,
