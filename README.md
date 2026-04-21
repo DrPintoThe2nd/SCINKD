@@ -33,7 +33,7 @@ sys     1m43.553s
 To install:
 ```
 git clone https://github.com/DrPintoThe2nd/SCINKD.git
-mamba create -f SCINKD/SCINKD.v2.2.3.environment.yml
+mamba create -f SCINKD/SCINKD.v2.2.4.environment.yml
 mamba activate scinkd2
 ```
 
@@ -63,8 +63,8 @@ Then, ensure the SCINKD/config.json file reads, where threads and memory are <=1
 ```
 To run the pipeline on the provided _Anniella_ genome on a machine with 24 available threads (and the default setting of 16Gb of available RAM):
 ```
-time snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD/SCINKD.v2.2.3.FULL.py -n         #dry-run to test inputs
-time snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD/SCINKD.v2.2.3.FULL.py      #run SCINKD in greedy mode for quick testing
+time snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD/SCINKD.v2.2.4.snakefile -n         #dry-run to test installation, inputs, and file structures
+time snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD/SCINKD.v2.2.4.snakefile      #run SCINKD
 ```
 **v2.2.3 update: Indicies are now generated automatically within the workflow.**
 Chromosome lengths can be calculated using samtools faidx (column two of the fasta index file):
