@@ -29,7 +29,12 @@ real    10m34.431s
 user    51m11.978s
 sys     1m43.553s
 ```
-
+For genomes larger than ~5Gb, folks can now run SCINKD using the "BIG" workflow (on the same test dataset, marginally increases compute time, but increases I/O ~10-20%):
+```
+real    11m1.875s
+user    56m16.524s
+sys     1m43.132s
+```
 To install:
 ```
 git clone https://github.com/DrPintoThe2nd/SCINKD.git
@@ -61,7 +66,7 @@ Then, ensure the SCINKD/config.json file reads, where threads and memory are <=1
 	"prefix": "Anniella_stebbinsi_HiFi_2024.asm.hic"
 }
 ```
-To run the pipeline on the provided _Anniella_ genome on a machine with 24 available threads (and the default setting of 16Gb of available RAM):
+To run the pipeline on the provided _Anniella_ genome on a machine with 24 available threads and assuming 24Gb of available RAM:
 ```
 time snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD/SCINKD.v2.2.4.snakefile -n         #dry-run to test installation, inputs, and file structures
 time snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD/SCINKD.v2.2.4.snakefile      #run SCINKD
