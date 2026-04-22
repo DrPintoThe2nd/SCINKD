@@ -20,11 +20,13 @@ Here is a graphical represention of these points:
 
 This implementation of SCINKD uses meryl to count and negate kmers from two genomic haplotypes.
 
-SCINKD/SCINKD.v2.2.3.FULL   = Most up-to-date SCINKD pipeline (without kmer compression).
+SCINKD/SCINKD.v2.2.4       = Most up-to-date SCINKD pipeline.
+
+SCINKD/SCINKD.v2.2.4.BIG   = Most up-to-date SCINKD pipeline for analysis of genomes >5Gb.
 
 Running on the test dataset on a cluster with a 24 core/24Gb RAM allocation reported these times upon successful completion:
 ```
-time snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD/SCINKD.v2.2.3.FULL.py
+time snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD/SCINKD.v2.2.4.snakefile
 real    10m34.431s
 user    51m11.978s
 sys     1m43.553s
