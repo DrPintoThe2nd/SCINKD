@@ -1,7 +1,7 @@
 # Citation
 If using this workflow, or developing code from it's underlying framework, please cite its source:
 
-Pinto BJ, Gable SM, Keating SE, Smith CH, Gamble T, Nielsen SV, Wilson MA. (2026). Sex chromosome identification and genome curation from a single individual with SCINKD. _Molecular Biology and Evolution_. _In press_.
+Pinto BJ, Gable SM, Keating SE, Smith CH, Gamble T, Nielsen SV, Wilson MA. (2026). Sex chromosome identification and genome curation from a single individual with SCINKD. _Molecular Biology and Evolution_. 43(4). https://doi.org/10.1093/molbev/msag067
 
 # Sex Chromosome Identification by Negating Kmer Densities (SCINKD)
 Sex Chromosome Identification by Negating Kmer Densities (SCINKD) is a 'pseudo-statistical' method to implicate the sex chromosome linkage group of a haplotype-resolved genome of the heterogametic sex with an unknown sex chromosome system.
@@ -31,7 +31,7 @@ real    10m34.431s
 user    51m11.978s
 sys     1m43.553s
 ```
-Replcing the previous "GREEDY" version, or genomes larger than ~5Gb, folks can now run SCINKD using the "BIG" workflow. This workflow has been tested on genomes between 10Gb and 20Gb, but requires >2x more resources depending on the genome size. On the same smaller test dataset, marginally increases compute time, but increases I/O and storage footprint ~10-20%):
+Replacing the previous "GREEDY" version, or genomes larger than ~5Gb, folks can now run SCINKD using the "BIG" workflow. This workflow has been tested on genomes between 10Gb and 20Gb, but requires >2x more resources depending on the genome size. On the same smaller test dataset, marginally increases compute time, but increases I/O and storage footprint ~10-20%):
 ```
 
 real    11m1.875s
