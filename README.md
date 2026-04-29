@@ -12,7 +12,7 @@ SCINKD is a framework to identify sex chromosomes that operates under a few gene
   2. The density of genetic differences occur at much higher densities on the sex-limited region of the sex chromosomes
   3. This density is then identifiable by isolating haplotype-specific kmer densities and comparing within and between both haplotypes.
 
-There are limitations to this method including--but not limited to--poor phasing deviating from NULL expectations, low per-base quality obscuring signal (low coverage ONT), and low levels of differentiation within the sex-limited region. See the preprint for more information: https://doi.org/10.1101/2025.07.07.660342 
+There are limitations to this method including--but not limited to--poor phasing deviating from NULL expectations, low per-base quality obscuring signal (low coverage ONT), and low levels of differentiation within the sex-limited region. See the paper for more detailed information on interpretation: https://doi.org/10.1093/molbev/msag067 
 
 Here is a graphical represention of these points:
 ![SCINKD_mock_plot_complex_v2 0](https://github.com/user-attachments/assets/aea48ea0-4136-40b3-9948-1fa8d40f18b8)
