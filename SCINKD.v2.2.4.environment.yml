@@ -247,5 +247,3 @@ dependencies:
   - yaml=0.2.5=h280c20c_3
   - yte=1.9.4=pyhd8ed1ab_0
   - zstd=1.5.7=hb78ec9c_6
-
-prefix: "/home/bpinto2/miniconda3/envs/scinkd2"
