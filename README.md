@@ -26,14 +26,14 @@ SCINKD/SCINKD.v2.2.4.BIG   = Most up-to-date SCINKD pipeline for analysis of gen
 
 Running on the test dataset on a cluster with a 24 core/24Gb RAM allocation reported these times upon successful completion:
 ```
-time snakemake --use-conda --rerun-incomplete --nolock --cores 24 -s SCINKD/SCINKD.v2.2.4.snakefile
+time snakemake --use-conda --rerun-incomplete --nolock --cores 24 -j 2 -s SCINKD/SCINKD.v2.2.4.snakefile
 real    10m34.431s
 user    51m11.978s
 sys     1m43.553s
 ```
 Replacing the previous "GREEDY" version, or genomes larger than ~5Gb, folks can now run SCINKD using the "BIG" workflow. This workflow has been tested on genomes between 10Gb and 20Gb, but requires >2x more resources depending on the genome size. On the same smaller test dataset, marginally increases compute time, but increases I/O and storage footprint ~10-20%):
 ```
-
+time snakemake --use-conda --rerun-incomplete --nolock --cores 24 -j 2 -s SCINKD/SCINKD.v2.2.4.BIG.snakefile
 real    11m1.875s
 user    56m16.524s
 sys     1m43.132s
