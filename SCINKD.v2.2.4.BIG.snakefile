@@ -72,7 +72,7 @@ rule hap1_split:
 	shell:
 		"""
 		mkdir -p {output.split}
-		faSplit size {input} 50000000 {output.split}/hap1_
+		faSplit size {input} 1000000 {output.split}/hap1_
 		"""
 
 rule meryl_hap1_count:
@@ -101,7 +101,7 @@ rule hap2_split:
 	shell:
 		"""
 		mkdir -p {output.split}
-		faSplit size {input} 50000000 {output.split}/hap2_
+		faSplit size {input} 1000000 {output.split}/hap2_
 		"""
 
 rule meryl_hap2_count:
