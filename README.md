@@ -41,7 +41,8 @@ sys     1m43.132s
 To install:
 ```
 git clone https://github.com/DrPintoThe2nd/SCINKD.git
-mamba create -f SCINKD/SCINKD.v2.2.4.environment.yml
+#tested environment versions: SCINKD/SCINKD.v2.2.4.environment.yml
+mamba create -n scinkd2 meryl snakemake r-dplyr r-ggplot2 samtools r-polychrome r-ggrepel ucsc-fasplit -y
 mamba activate scinkd2
 ```
 
