@@ -1,0 +1,13 @@
+name: splitting_env
+
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  - python=3.11
+  - samtools
+  - seqkit
+  - htslib
+  - meryl
