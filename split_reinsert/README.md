@@ -7,7 +7,7 @@ with bgzip, and counts k-mers with Meryl.
 
 ## Project files and inputs
 
-Keep these files together in `split_reinsert_test/`:
+Keep these files together in `split_reinsert/`:
 
 - `test_file_splitting.sh` — Slurm batch script.
 - `reinsert_headers.py` — splits headerless sequence into FASTA records.
@@ -41,7 +41,7 @@ beside the input file.
    `reinsert_headers.py` and puts the default durable output directory here.
 
    ```bash
-   cd /path/to/split_reinsert_test
+   cd /path/to/split_reinsert
    ```
 
 4. Create and activate the environment:
@@ -64,15 +64,11 @@ Example job submission that sets input file path, processes the first 50 Mb, and
      test_file_splitting.sh
    ```
 
-   To override the input path, set `INPUT` as in the example or edit its
-   default in the script. 
-   
    `TEST_BP` is a positive integer number of bases. If it is unset or empty,
    the script uses the total sequence length from the FASTA index and processes
    the whole genome. 
 
-   `CHROMOSOME_SIZE` is a positive integer number of bases. 
-
+   `CHROMOSOME_SIZE` is a positive integer number of bases less than or equal to the number of bases extracted. 
    
    `PYTHON_SCRIPT` defaults to `$SLURM_SUBMIT_DIR/reinsert_headers.py`; therefore submit from the project
    directory or explicitly set `PYTHON_SCRIPT` to the helper's path.
@@ -101,10 +97,10 @@ number of Slurm CPUs sets both `BGZIP_THREADS` and `MERYL_THREADS`.
 the script uses it as `DURABLE_ROOT`; the job's durable output directory is
 `$DURABLE_ROOT/$SLURM_JOB_ID`. `WORKDIR` defaults to `${LSCRATCH:-/lscratch/$SLURM_JOB_ID}/scratch_output`.
 
-Example when submitting from `split_reinsert_test/`:
+Example when submitting from `split_reinsert/`:
 
 ```text
-split_reinsert_test/                         # SLURM_SUBMIT_DIR / DURABLE_ROOT
+split_reinsert/                         # SLURM_SUBMIT_DIR / DURABLE_ROOT
 ├── README.md
 ├── environment.yml
 ├── reinsert_headers.py
