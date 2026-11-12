@@ -1,0 +1,3 @@
+/[0-9]*/
+splitting-test-*.out
+splitting-test-*.err
